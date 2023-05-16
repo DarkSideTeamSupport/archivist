@@ -19,8 +19,8 @@ class IndexController extends Controller
 
         $commissions = Commission::with('persons', 'user')->orderBy('title')->filter($filter)->paginate(4);
 
-        $commission_members = User::where('user_id', '=', 4)
-            ->orWhere('user_id', 6)
+        $commission_members = User::where('role_id', '=', 4)
+            ->orWhere('role_id', 6)
             ->orWhere('position_id', 3)
             ->orWhere('position_id', 4)
             ->orderBy('surname')
