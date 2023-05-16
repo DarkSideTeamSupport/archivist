@@ -133,9 +133,9 @@
 
 
 <body class="font-sans bg-gray-100">
-<main>
+<main class="mb-4">
     @yield('content')
-    </main>
+</main>
 <footer class="footer mt-auto">
     <div class="container">
         <p class="text-center text-gray-600">© ГАПОУ «Альметьевский политехнический техникум»
