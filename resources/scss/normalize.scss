@@ -1,0 +1,114 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    outline: none;
+
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+input {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+body {
+    background-color: #EDEDF7;
+    font-family: Arial sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+p {
+    color: black;
+    font-size: 16px;
+}
+
+.footer {
+    background-color: rgb(255 255 255 /1);
+    padding: 10px 15px;
+    p {
+        font-size: 14px;
+    }
+}
+
+* {
+    font-family: Arial, sans-serif;
+    color: #1D1D1D;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    //box-shadow: inset 0 0 6px #6162FDFF;
+}
+
+::-webkit-scrollbar-thumb {
+    //box-shadow: inset 0 0 6px #6162FDFF;
+    border-radius: 10px;
+    background: #6162FDFF;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1800px;
+    padding: 0 10px;
+    margin: 0 auto;
+    overflow-x: scroll;
+    @media screen and (max-width: 550px) {
+        padding: 0 5px;
+    }
+}
+
+$main-blue: #6162FD;
+

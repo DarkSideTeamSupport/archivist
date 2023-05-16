@@ -1,0 +1,203 @@
+@import "../normalize";
+
+.project__type {
+    margin-top: 30px;
+
+    form {
+        button {
+            padding: 10px 15px !important;
+            color: #1D1D1D;
+            border-radius: 5px;
+            border: 1px solid #6162FD;
+            transition: .4s;
+
+            &:hover {
+                background-color: #6162FD;
+                color: white;
+                transition: .4s;
+            }
+        }
+
+        .active {
+            background-color: $main-blue !important;
+            color: white;
+        }
+    }
+}
+
+.file__upload {
+    background: #D8D8EE;
+    padding: 50px 20px 20px 20px;
+    min-width: 150px;
+    max-width: 280px;
+    min-height: max-content;
+    visibility: hidden;
+    width: 100%;
+    top: 50%;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+        font-size: 14px;
+    }
+
+    a {
+        background-color: $main-blue;
+        border-radius: 10px;
+        color: white;
+        width: 100%;
+        padding: 7px 0;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.project__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .project__card {
+        display: flex;
+        gap: 15px;
+
+        form {
+            min-height: max-content;
+        }
+
+        .left {
+            background: #D8D8EE;
+            padding: 20px;
+
+            p {
+                font-weight: 600;
+
+                span {
+                    font-weight: normal;
+                }
+            }
+
+            @media screen and (max-width: 1024px) {
+                padding: 10px;
+            }
+            border-radius: 10px;
+            flex-grow: 1;
+
+            .not_signed {
+                width: 8px;
+                height: 9px;
+                background: #FF1111;
+                filter: blur(2.5px);
+            }
+
+            .signed {
+                width: 8px;
+                height: 9px;
+                background: #1AB157;
+                filter: blur(2.5px);
+            }
+
+            .status__block {
+                margin-top: 35px;
+
+                button {
+                    color: $main-blue;
+                    border-bottom: 1px dashed $main-blue;
+                    text-decoration: none;
+                    letter-spacing: 1px;
+                }
+            }
+
+        }
+
+        .upload {
+            background: #D8D8EE;
+            border-radius: 10px;
+            width: 100%;
+            min-width: 200px;
+
+            button {
+
+                background: #1AB157;
+                padding: 5px 10px;
+                position: relative;
+
+            }
+
+            a {
+                z-index: 1;
+                cursor: pointer;
+            }
+
+            input {
+                cursor: pointer;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            span {
+
+                font-size: 14px;
+                text-align: center;
+                max-width: 165px;
+                z-index: 1;
+            }
+
+            img {
+                z-index: 1;
+            }
+
+            .as {
+                top: 50%;
+                transform: translate(-50%, -50%);
+                left: 50%;
+
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .project__card {
+            background: #D8D8EE !important;
+
+            .downloadForm {
+
+            }
+
+            .upload {
+                min-height: 100px;
+                padding: 15px 0;
+                border-radius: 0;
+                border-left: 1px solid $main-blue;
+
+                input {
+                    width: 100%;
+
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 640px) {
+        .project__card {
+            background: #D8D8EE !important;
+            flex-direction: column;
+
+            .upload {
+                min-height: 100px;
+                padding: 15px 0;
+                border-radius: 0;
+                border: none;
+                border-top: 1px solid $main-blue;
+
+                input {
+                    width: 100%;
+
+                }
+            }
+        }
+    }
+}
