@@ -14,7 +14,7 @@
                 @csrf
                 <div class="flex items-center gap-2 w-full max-w-auto flex-col sm:flex-row">
                     <label for="title" class="text-white">Название</label>
-                    <input type="text" class="p-0 px-2 py-1 rounded w-full" name="title" placeholder="ООО ПЦ">
+                    <input type="text" class="p-0 px-2 py-1 rounded w-full" name="title" id="title" placeholder="ООО ПЦ">
                 </div>
                 <div class="flex items-center gap-2  w-full max-w-auto flex-col sm:flex-row">
                     <label for="expiration_date" class="text-white lg:whitespace-nowrap">Окончание работы</label>
@@ -104,6 +104,9 @@
                         <option class="px-2 py-2 w-full"
                                 value="{{$commission_member->id}}">{{$commission_member->surname}} {{$commission_member->name}} {{$commission_member->patronymic}}</option>
                     @endforeach
+                    @if($commission_members->isEmpty())
+                        <p class="my-8 text-xl">Создайте сотрудника!</p>
+                    @endif
                 </select>
             </div>
             <div class="flex flex-col gap-2">

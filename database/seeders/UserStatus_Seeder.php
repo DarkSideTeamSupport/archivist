@@ -16,7 +16,7 @@ class UserStatus_Seeder extends Seeder
     public function run()
     {
         $userStatuses = [
-            'active','banned'
+            'Активный','Заблокирован'
         ];
 
         foreach ($userStatuses as $userStatus) {
