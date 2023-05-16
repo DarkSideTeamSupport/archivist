@@ -11,7 +11,13 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         $data = $request->validated();
-        Defence::create($data);
+        try {
+            Defence::create($data);
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
+
+
         return redirect()->route('defences.index');
     }
 }

@@ -12,7 +12,12 @@ class CreateController extends Controller
     {
         $data = $request->validated();
 
-        Group::create($data);
+
+        try {
+            Group::create($data);
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
         return redirect()->route('groups.index');
     }
 }

@@ -19,15 +19,20 @@ class CreateController extends Controller
 
         $students = User::where('group_id', $defence->reportDiscipline->group->id)->get();
 
-        foreach ($students as $student) {
-            DefenceReport::create([
-                'student_id' => $student->id,
-                'defence_id' => $data['defence_id'],
-                'commission_id' => $data['commission_id'],
-                'employee_id' => $data['employee_id'],
-                'actual_delivery_date' => $data['actual_delivery_date'],
-            ]);
+        try {
+            foreach ($students as $student) {
+                DefenceReport::create([
+                    'student_id' => $student->id,
+                    'defence_id' => $data['defence_id'],
+                    'commission_id' => $data['commission_id'],
+                    'employee_id' => $data['employee_id'],
+                    'actual_delivery_date' => $data['actual_delivery_date'],
+                ]);
+            }
+        } catch (\Exception $e) {
+            dd('Ошибка');
         }
+
 
         return response()->json([
             'status' => 200

@@ -11,7 +11,13 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         $data = $request->validated();
-        Commission::create($data);
+        try {
+            Commission::create($data);
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
+
+
         return redirect()->route('commissions.index');
     }
 }

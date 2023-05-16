@@ -13,10 +13,15 @@ class CreateController extends Controller
     {
         $data = $request->validated();
 
-        foreach ($data['user_id'] as $key => $value) {
-            $data['user_id'] = $data['user_id'] = $value;
-            PersonInCommission::create($data);
+        try {
+            foreach ($data['user_id'] as $key => $value) {
+                $data['user_id'] = $data['user_id'] = $value;
+                PersonInCommission::create($data);
+            }
+        } catch (\Exception $e) {
+            dd('Укажите сотрудника');
         }
+
         return redirect()->route('commissionMembers.index');
     }
 }

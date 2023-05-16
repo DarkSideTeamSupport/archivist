@@ -11,7 +11,12 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         $data = $request->validated();
-        UserPosition::create($data);
+
+        try {
+            UserPosition::create($data);
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
         return redirect()->route('positions.index');
     }
 }

@@ -12,7 +12,11 @@ class CreateController extends Controller
     {
         $data = $request->validated();
 
-        Specialization::create($data);
+        try {
+            Specialization::create($data);
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
         return redirect()->route('specialties.index');
     }
 }

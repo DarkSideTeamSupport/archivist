@@ -11,10 +11,17 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         $data = $request->validated();
-        Discipline::create($data);
+
+
+        try {
+            Discipline::create($data);
+
+        } catch (\Exception $e) {
+            dd('Ошибка');
+        }
         return response()->json([
-           'data'=>$data,
-           'status'=>200
+            'data' => $data,
+            'status' => 200
         ]);
     }
 }
