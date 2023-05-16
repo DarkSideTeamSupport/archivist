@@ -2,12 +2,19 @@
 @section('content')
     <div class="max-w-[1500px] px-[10px] mx-auto">
         <div class="mt-6">
+            @if(!$DefenceReportsSurrendered->isEmpty())
             <p class="text-lg">Общее количество сданных работ:</p>
+
             <div class="my-2">
                 <p>Кол-во сданных работ: {{$surrendered}}</p>
                 <p>Кол-во не сданных работ: {{$unreturned}}</p>
             </div>
-            <p class="text-lg">Количество сданных работ по преподавателям:</p>
+
+                <p class="text-lg">Количество сданных работ по преподавателям:</p>
+            @else
+                <p class="text-lg">Нет загруженных работ!</p>
+            @endif
+
             @foreach($DefenceReportsSurrendered as $DefenceReportSurrendered)
                 <div class="my-2">
                     <p>{{$DefenceReportSurrendered->director->surname}} {{$DefenceReportSurrendered->director->name}} {{$DefenceReportSurrendered->director->patronymic}}:
