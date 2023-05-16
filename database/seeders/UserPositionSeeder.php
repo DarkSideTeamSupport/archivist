@@ -16,7 +16,7 @@ class UserPositionSeeder extends Seeder
     public function run()
     {
         $positions = [
-            'admin','student','employee','commission_member'
+            'Админ','Студент','Сотрудник','Сотрудник комиссии'
         ];
 
         foreach ($positions as $position) {

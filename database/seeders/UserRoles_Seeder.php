@@ -16,7 +16,7 @@ class UserRoles_Seeder extends Seeder
     public function run()
     {
         $userRoles = [
-            'admin','student','educational_part','teacher','practice_department','commission_member'
+            'Админ','Студент','Учебная часть','Преподаватель','Отдел практики','Сотрудник комиссии'
         ];
 
         foreach ($userRoles as $userRole) {
