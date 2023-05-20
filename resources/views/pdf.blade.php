@@ -48,11 +48,18 @@
 <h1>АКТ</h1>
 <h2>О передаче курсовых проектов в архив техникума на хранение</h2>
 <p>Мы, нижеподписавшиеся преподаватель {{$reportDefences[0]->director->surname}} <?php echo mb_substr($reportDefences[0]->director->name, 0, 1)?>.<?php echo mb_substr($reportDefences[0]->director->patronymic, 0, 1)?>. архивариус Ветлугина Е.Н. , Минвалиева Н.Г составили настоящий акт о приеме-передаче
-    курсовых работ по «{{$reportDefences[0]->defence->reportDiscipline->discipline->specialty->decoding}}
+    @if($reportDefences[0]->defence->reportDiscipline->reportType->id == 1)
+        курсовых
+    @elseif($reportDefences[0]->defence->reportDiscipline->reportType->id == 2)
+        дипломных
+    @else
+        практических
+    @endif
+
+    работ по
     «{{$reportDefences[0]->defence->reportDiscipline->discipline->title}}» студентов
     группы {{$reportDefences[0]->defence->reportDiscipline->group->title}}
-    специальности {{$reportDefences[0]->defence->reportDiscipline->discipline->specialty->title}} Информационные системы
-    и программирование за {{date('Y')-1}}-{{date('Y')}} учебный год в количестве {{$reportDefences->count()}} шт,
+    специальности {{$reportDefences[0]->defence->reportDiscipline->discipline->specialty->title}} {{$reportDefences[0]->defence->reportDiscipline->discipline->specialty->decoding}}  за {{date('Y')-1}}-{{date('Y')}} учебный год в количестве {{$reportDefences->count()}} шт,
     согласно прилагаемого списка.</p>
 <table border="1" width="100%">
     <thead>
