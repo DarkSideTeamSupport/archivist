@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Specialization::factory(30)->create();
+        User::factory(1550)->create();
 
 
     }

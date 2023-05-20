@@ -117,19 +117,8 @@
                                     <select name="role_id" id="role_id" class="border-none p-0 pl-2">
                                         <option name="role_id"
                                                 value="{{$employee->role_id}}">
-                                            @if($employee->role->title == 'admin')
-                                                {{'Админ'}}
-                                            @elseif($employee->role->title == 'educational_part')
-                                                {{'Учебная часть'}}
-                                            @elseif($employee->role->title == 'teacher')
-                                                {{'Преподаватель'}}
-                                            @elseif($employee->role->title == 'practice_department')
-                                                {{'Отдел практики'}}
-                                            @elseif($employee->role->title == 'commission_member')
-                                                {{'Сот. комиссии'}}
-                                            @else
-                                                {{$employee->role->title}}
-                                            @endif
+
+                                            {{$employee->role->title}}
 
                                         </option>
                                         @foreach($roles as $role)
@@ -155,15 +144,7 @@
                                     <select name="position_id" id="position_id" class="border-none p-0 pl-2 w-[100px]">
                                         <option name="position_id"
                                                 value="{{$employee->position_id}}">
-                                            @if($employee->position->title == 'admin')
-                                                {{"Админ"}}
-                                            @elseif($employee->position->title == 'employee')
-                                                {{"Сотрудник"}}
-                                            @elseif($employee->position->title == 'commission_member')
-                                                {{"Сот. комиссии"}}
-                                            @else
-                                                {{'Студент'}}
-                                            @endif
+                                            {{$employee->position->title}}
                                         </option>
                                         @foreach($positions as $position)
                                             <option value="{{$position->id}}"
