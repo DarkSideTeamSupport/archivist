@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'patronymic' => 'Иванович',
             'login' => fake()->unique()->phoneNumber(),
             'email' => fake()->unique()->freeEmail(),
-            'password' => '123456', // password
+            'password' => Hash::make('123456'), // password
             'group_id' => Group::all()->random()->id,
             'course' => random_int(1,4),
             'position_id' => 2,
