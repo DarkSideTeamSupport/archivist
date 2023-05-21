@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('archivist_mark')->default(0)->nullable();
             $table->foreignId('employee_id')->constrained('users');
             $table->string('file')->nullable();
-            $table->date('upload_date')->nullable();
+            $table->dateTime('upload_date')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
