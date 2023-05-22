@@ -19,6 +19,11 @@ $("input").on("focus", function () {
     $(this).closest("tr").removeClass('active');
 })
 
+$("select").on("focus", function () {
+    $(this).closest("tr").addClass('active');
+}).on('focusout', function () {
+    $(this).closest("tr").removeClass('active');
+})
 
 function formOpen() {
     $(".form__overlay").addClass("active");

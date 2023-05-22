@@ -78,7 +78,7 @@
                         @method('PATCH')
                         <div class="flex flex-col gap-2 justify-center items-center h-full">
                             <label class="input-file">
-                                <input type="file" name="file" id="file">
+                                <input type="file" name="file" id="file" required>
                                 <span>Выберите файл</span>
                             </label>
                             <button type="submit" class="upBtn text-white rounded z-[2]" onclick="IsInputFileEmpty()">
