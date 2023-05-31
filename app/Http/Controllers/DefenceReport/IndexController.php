@@ -32,7 +32,7 @@ class IndexController extends Controller
 
         $filter = app()->make(DefenceReportFilter::class, ['queryParams' => array_filter($data)]);
 
-        $students = User::where('role_id', 2)->where('position_id', 2)->orderBy('surname')->get();
+        $students = User::where('role_id', 2)->orderBy('surname')->get();
         $disciplines = Discipline::orderBy('title')->get();
         $commissions = Commission::orderBy('title')->get();
         $groups = ReportDiscipline::with('group', 'discipline', 'reportType')->get();
@@ -41,7 +41,11 @@ class IndexController extends Controller
         $reportTypes = ReportType::orderBy('title')->get();
 
 
-        $reportDefences = DefenceReport::with('commission', 'director', 'defence', 'student')->filter($filter)->paginate(5);
+        if (Auth::user()->role_id == 1) {
+            $reportDefences = DefenceReport::with('commission', 'director', 'defence', 'student')->filter($filter)->paginate(5);
+        } else {
+            $reportDefences = DefenceReport::with('commission', 'director', 'defence', 'student')->where('employee_id', '=', Auth::user()->id)->filter($filter)->paginate(5);
+        }
 
 
         return view('defenceReports.index', compact('reportDefences', 'disciplines', 'groups', 'reportTypes', 'commissions', 'defences', 'managers', 'students'));

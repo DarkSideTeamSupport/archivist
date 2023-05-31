@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'commission_id' => 'integer',
-            'user_id' => 'array|unique:users',
+            'user_id' => 'array',
         ];
     }
 }

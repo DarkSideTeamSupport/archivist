@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/>
 
 
@@ -41,7 +42,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Панель управления') }}
+                        {{ __('Личный кабинет') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -142,5 +143,6 @@
             ® ИС «Архивариус», Нигматуллин М.Р., v01</p>
     </div>
 </footer>
+
 </body>
 </html>
