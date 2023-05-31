@@ -13,10 +13,12 @@ class FileUploadController extends Controller
     public function __invoke(DefenceReport $defenceReport)
     {
         $data = request()->validate([
-            'file' => 'file'
+            'file' => 'mimes:docx'
         ]);
 
-
+        if (!$data) {
+            dd('324');
+        }
         $data += ['upload_date' => date('Y-m-d H:i:s')];
         $data += ['archivist_mark' => 1];
 
@@ -34,9 +36,7 @@ class FileUploadController extends Controller
 
         $data['file'] = mb_substr($data['file'], 7, 99);
 
-
         $defenceReport->update($data);
-
         return back();
 
     }

@@ -77,6 +77,9 @@
                         @csrf
                         @method('PATCH')
                         <div class="flex flex-col gap-2 justify-center items-center h-full">
+                            @error('file')
+                            <span class="alert alert-danger">{{ $message }}</span>
+                            @enderror
                             <label class="input-file">
                                 <input type="file" name="file" id="file" required>
                                 <span>Выберите файл</span>
