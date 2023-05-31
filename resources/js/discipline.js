@@ -1,6 +1,10 @@
 "use strict";
 
-import './app';
+
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+import 'sweetalert2/src/sweetalert2.scss'
+
 
 //create discipline
 $(".createDisciplineForm").submit(function (e) {
@@ -23,6 +27,7 @@ $(".createDisciplineForm").submit(function (e) {
 
         success: function (response, data) {
             if (response.status = 200) {
+
                 Swal.fire(
                     'Успешно!',
                     'Дисциплина добавлена успешна',
@@ -33,7 +38,8 @@ $(".createDisciplineForm").submit(function (e) {
                 })
             }
 
-            formOpen()
+            $(".form__overlay").removeClass("active");
+            $(".createForm").removeClass("active");
 
             $('.d-title').val('');
 
@@ -79,7 +85,7 @@ $(".disciplineForm").submit(function (e) {
 
                     Swal.fire(
                         'Успешно!',
-                        'Дисциплина добавлена удалена',
+                        'Дисциплина успешно удалена',
                         'success'
                     ).then(function () {
 
@@ -105,7 +111,7 @@ $(".disciplineForm").submit(function (e) {
             method: 'POST',
             data: $(this).serialize(),
             success: function (response, data) {
-                console.log(data)
+
                 Swal.fire(
                     'Успешно!',
                     'Данные дисциплины успешно изменены',

@@ -38,7 +38,7 @@
                 <thead>
                 <tr>
                     <td>Название комиссии</td>
-                    <td>Члены коммиссий</td>
+                    <td>Сотрудники коммиссий</td>
                     <td>Окончание работы</td>
                     <td>Управление</td>
                 </tr>
@@ -106,7 +106,7 @@
                             class="p-0 flex flex-col  justify-center items-center w-full m-0 relative addMemberSelect"
                             required>
                         @foreach($commission_members as $commission_member)
-                            <option class="px-2 py-2 w-full"
+                            <option  class="px-2 py-2 w-full"
                                     value="{{$commission_member->id}}">{{$commission_member->surname}} {{$commission_member->name}} {{$commission_member->patronymic}}</option>
                         @endforeach
 
@@ -126,7 +126,8 @@
                     @if($commission_members->isEmpty())
                         disabled
                     @endif
-                    type="submit">Добавить</button>
+                    type="submit">Добавить
+                </button>
             </div>
         </form>
     </div>

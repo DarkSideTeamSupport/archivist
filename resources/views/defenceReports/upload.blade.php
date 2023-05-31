@@ -11,10 +11,10 @@
         </div>
         <script>
             // $('.coursework').on('click').addClass('active');
-            $( ".coursework" ).on( "click", function(e) {
+            $(".coursework").on("click", function (e) {
 
-                $( ".coursework" ).addClass('active')
-            } );
+                $(".coursework").addClass('active')
+            });
         </script>
         <div class="project__list mt-12">
             @foreach($reportDefences as $reportDefence)
@@ -26,13 +26,13 @@
                             <p>Группа: <span>{{$reportDefence->defence->reportDiscipline->group->title}}</span></p>
                             <p>Вид отчета: <span>{{$reportDefence->defence->reportDiscipline->reportType->title}}</span>
                             </p>
-                            <p>Тема: <span>
-                                    @if($reportDefence->theme == "")
-                                        <span class="text-red-500">не заполнено</span>
-                                    @else
-                                        {{$reportDefence->theme}}
-                                    @endif
-                                </span></p>
+                            <p>Тема:
+                                <span><?php echo ($reportDefence->theme != '') ? $reportDefence->theme : '<span class="text-red-500">не заполнено</span>' ?></span>
+
+                            </p>
+                            <p>Оценка:
+                                <span><?php echo ($reportDefence->grade != '') ? $reportDefence->grade : '<span class="text-red-500">не оценено</span>' ?></span>
+                            </p>
                             <p>Преподаватель:
                                 <span>{{$reportDefence->director->surname}} {{$reportDefence->director->name}} {{$reportDefence->director->patronymic}}</span>
                             </p>
@@ -43,6 +43,7 @@
                             <div class="flex items-center gap-2">
                                 <p>Подпись</p>
                                 <div class="status
+
                                 @if($reportDefence->status == 1)
                                     signed
 @else
@@ -51,13 +52,12 @@
                                     "></div>
                             </div>
                             <div class="flex gap-4 h-auto justify-between">
-                                <p class="h-min">Дата загрузки: <span>
-                                        @if($reportDefence->upload_date == '')
-                                            не загружалось
-                                        @else
-                                            {{$reportDefence->upload_date}}
-                                        @endif
-                                    </span></p>
+                                <p class="h-min">Дата загрузки:
+
+                                    <span><?php echo ($reportDefence->upload_date != '') ? $reportDefence->upload_date : '<span class="text-red-500">не загружалось</span>' ?>
+</span>
+
+                                </p>
                                 <form action="{{route('defenceReport.download', $reportDefence->id)}}" method="get"
                                       class="h-min downloadForm">
                                     @csrf

@@ -14,4 +14,8 @@ class PersonInCommission extends Model
     protected $guarded;
 
 
+    public function person()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
