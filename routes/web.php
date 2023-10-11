@@ -19,18 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('login');
 });
-Route::get('dashboard/replace', function () {
-    dd('Hello');
-//    $users = \App\Models\User::all()->where('position_id','=',1);
-//
-//
-//    foreach ($users as $user) {
-//        $user->update([
-//            'position_id'=>4
-//        ]);
-//    }
-//    dd($users);
-});
+
 Route::group(['namespace' => 'App\Http\Controllers\Student', 'middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/students', 'IndexController')->name('students.index');
     Route::post('dashboard/students', 'CreateController')->name('students.create');
